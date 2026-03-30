@@ -1,7 +1,6 @@
-```markdown
 # zerocrawlr
 
-**zerocrawlr** is a powerful, interactive Command-Line Interface (CLI) web crawler built with Go. 
+**zerocrawlr** is a powerful, interactive Command-Line Interface (CLI) web crawler built with Go.
 It goes beyond simple HTML parsing by utilizing headless browser emulation to execute JavaScript, trigger lazy-loaded elements, and bypass basic anti-bot protections.
 
 ## ✨ Features
@@ -17,17 +16,20 @@ It goes beyond simple HTML parsing by utilizing headless browser emulation to ex
 Ensure you have [Go](https://golang.org/dl/) installed on your machine.
 
 1. Clone the repository:
+
    ```bash
-   git clone [https://github.com/yourusername/zerocrawlr.git](https://github.com/yourusername/zerocrawlr.git)
+   git clone https://github.com/yourusername/zerocrawlr.git
    cd zerocrawlr
    ```
 
 2. Install dependencies:
+
    ```bash
    go mod tidy
    ```
 
 3. Build the executable:
+
    ```bash
    go build -o zerocrawlr main.go
    ```
@@ -47,11 +49,10 @@ Run the compiled binary from your terminal:
 
 ## 📦 Dependencies
 
-- [Bubble Tea](https://github.com/charmbracelet/bubbletea) & [Bubbles](https://github.com/charmbracelet/bubbles) - For the TUI.
-- [Lipgloss](https://github.com/charmbracelet/lipgloss) - For terminal styling.
-- [Chromedp](https://github.com/chromedp/chromedp) - For headless browser automation.
+- [Bubble Tea](https://github.com/charmbracelet/bubbletea) & [Bubbles](https://github.com/charmbracelet/bubbles) — For the TUI.
+- [Lipgloss](https://github.com/charmbracelet/lipgloss) — For terminal styling.
+- [Chromedp](https://github.com/chromedp/chromedp) — For headless browser automation.
 
 ## ⚠️ Disclaimer
 
 This tool is created for educational purposes. Please respect the `robots.txt` of the websites you crawl and ensure you are not violating their Terms of Service.
-```
