@@ -1,87 +1,57 @@
-Here is the exact content for your `README.md` file. You can copy everything below and paste it directly into a file named `README.md` in your project folder:
-
 ```markdown
 # zerocrawlr
 
-A lightweight, stealthy, terminal-based web crawler written in Go. 
-`zerocrawlr` utilizes a headless Chromium browser to bypass basic anti-bot protections, extract all visible links from a target webpage, and export them into a clean JSON file.
-
-![Go Version](https://img.shields.io/badge/Go-1.21%2B-00ADD8?style=flat&logo=go)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+**zerocrawlr** is a powerful, interactive Command-Line Interface (CLI) web crawler built with Go. 
+It goes beyond simple HTML parsing by utilizing headless browser emulation to execute JavaScript, trigger lazy-loaded elements, and bypass basic anti-bot protections.
 
 ## ✨ Features
 
-*   **Beautiful TUI:** Clean, interactive terminal interface built with [Bubble Tea](https://github.com/charmbracelet/bubbletea), [Lipgloss](https://github.com/charmbracelet/lipgloss), and [Bubbles](https://github.com/charmbracelet/bubbles).
-*   **Browser Emulation:** Uses [chromedp](https://github.com/chromedp/chromedp) to drive a real headless browser, perfectly executing JavaScript and rendering dynamic content (React, Vue, Angular).
-*   **Anti-Bot Evasion:** Bypasses basic bot detection mechanisms by:
-    *   Rotating modern, realistic User-Agents.
-    *   Stripping the `AutomationControlled` flag from Chromium.
-    *   Ignoring SSL certificate mismatches.
-*   **Smart Scraping:** Automatically scrolls to the bottom of the page before scraping, triggering lazy-loaded content.
-*   **Clean Export:** Outputs neatly formatted JSON files (e.g., `2023-10-27_example_com.json`).
+- **Interactive TUI**: Built with Bubble Tea for a smooth, terminal-based user interface.
+- **Headless Browser Emulation**: Uses `chromedp` to render Single Page Applications (SPAs) and dynamic content.
+- **Aggressive Scraping**: Automatically scrolls the page to trigger lazy-loaded elements before scraping.
+- **Evasion Tactics**: Includes User-Agent randomization, SSL error bypassing, and bot-detection evasion flags.
+- **Auto-Export**: Automatically formats the output into a clean JSON file named by date and target URL (e.g., `2026-03-30_example_com.json`).
 
-## 🛠️ Prerequisites
+## 🚀 Installation
 
-Because `zerocrawlr` relies on Chrome DevTools Protocol, you **must have Google Chrome or Chromium installed** on your system. 
+Ensure you have [Go](https://golang.org/dl/) installed on your machine.
 
-*   **Go:** v1.21 or higher recommended.
-*   **Chrome/Chromium:** Installed and available in your system's `PATH`.
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/yourusername/zerocrawlr.git](https://github.com/yourusername/zerocrawlr.git)
+   cd zerocrawlr
+   ```
 
-## 📦 Installation
+2. Install dependencies:
+   ```bash
+   go mod tidy
+   ```
 
-Clone the repository and build the binary:
+3. Build the executable:
+   ```bash
+   go build -o zerocrawlr main.go
+   ```
 
-```bash
-git clone https://github.com/reihanaya/zerocrawlr.git
-cd zerocrawlr
-go mod tidy
-go build -o zerocrawlr
-```
+## 🛠️ Usage
 
-## 🚀 Usage
-
-Run the compiled binary:
+Run the compiled binary from your terminal:
 
 ```bash
 ./zerocrawlr
 ```
 
-1. Type the target URL (e.g., `https://example.com`).
-2. Press `Enter` to start the crawler.
-3. Wait for the headless browser to emulate, scroll, and extract the data.
-4. Press `Esc` at any time to safely quit.
+1. The TUI will prompt you to enter a **Target URL**.
+2. Press `Enter`.
+3. Wait for the browser emulation to finish processing the page.
+4. Check your current directory for the generated JSON file containing all the extracted links and titles.
 
-## 📄 Output Example
+## 📦 Dependencies
 
-If you target `https://example.com`, `zerocrawlr` will generate a file named something like `2023-10-27_example_com.json`:
-
-```json
-[
-  {
-    "title": "More information...",
-    "url": "https://www.iana.org/domains/example"
-  },
-  {
-    "title": "Example Domain",
-    "url": "https://www.iana.org/domains/reserved"
-  }
-]
-```
-
-## ⚙️ How it Works
-
-1.  **Initialization:** Sets up a headless Chrome instance with specific flags (`--no-sandbox`, `--disable-gpu`, `--ignore-certificate-errors`).
-2.  **Stealth:** Selects a random User-Agent from a pool of up-to-date browsers (Chrome, Firefox, Safari) and disables the `AutomationControlled` feature.
-3.  **Navigation:** Navigates to the target URL and waits for the `body` tag to become visible.
-4.  **Interaction:** Executes a JavaScript snippet to scroll to the absolute bottom of the page and pauses for 3 seconds. This allows time for AJAX calls and lazy-loading scripts to populate the DOM.
-5.  **Extraction:** Queries the DOM for all `<a>` tags with `href` attributes and valid inner text, mapping them to a structured object.
-6.  **Export:** Marshals the data into formatted JSON and writes it to a timestamped file.
+- [Bubble Tea](https://github.com/charmbracelet/bubbletea) & [Bubbles](https://github.com/charmbracelet/bubbles) - For the TUI.
+- [Lipgloss](https://github.com/charmbracelet/lipgloss) - For terminal styling.
+- [Chromedp](https://github.com/chromedp/chromedp) - For headless browser automation.
 
 ## ⚠️ Disclaimer
 
-This tool is intended for educational purposes and legitimate web scraping (like extracting public links). Always respect a website's `robots.txt` file and Terms of Service. The author is not responsible for any misuse of this software.
-
-## 📜 License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
+This tool is created for educational purposes. Please respect the `robots.txt` of the websites you crawl and ensure you are not violating their Terms of Service.
 ```
