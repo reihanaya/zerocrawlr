@@ -18,7 +18,7 @@ Ensure you have [Go](https://golang.org/dl/) installed on your machine.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/zerocrawlr.git
+   git clone https://github.com/reihanaya/zerocrawlr.git
    cd zerocrawlr
    ```
 
